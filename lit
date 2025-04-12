@@ -1,0 +1,166 @@
+#!/bin/bash
+
+GREEN='\033[0;32m'
+NC='\033[0m' # No Color
+TYPEWRITER=false
+CURSOR_PROMPT=false
+
+display_help() {
+    echo "The 5 Hindrances Refactored - Litany of Mental Purification"
+    echo
+    echo "Usage: $0 [OPTIONS]"
+    echo
+    echo "Available options:"
+    echo "  -t, --typewriter        Activate typewriter effect (text appears one character at a time)"
+    echo "  -c, --cursor            Enable the final prompt for user input (Y/N)"
+    echo
+}
+
+for arg in "$@"; do
+    case $arg in
+        -t|--typewriter)
+            TYPEWRITER=true
+            ;;
+        -c|--cursor)
+            CURSOR_PROMPT=true
+            ;;
+        -h|--help)
+            display_help
+            exit 0
+            ;;
+        *)
+            echo "Unknown option: $arg"
+            display_help
+            exit 1
+            ;;
+    esac
+done
+
+type_text() {
+    text="$1"
+    delay="${2:-0.005}"
+
+    if $TYPEWRITER; then
+        for (( i=0; i<${#text}; i++ )); do
+            char="${text:$i:1}"
+            echo "${char}"
+            sleep $delay
+        done
+        echo
+    else
+        echo "${text}"
+    fi
+}
+
+ascii_banner() {
+echo -e "${GREEN}"
+cat << "EOF"
+===========================================================
+            ███╗   ███╗███████╗███╗   ██╗████████╗
+            ████╗ ████║██╔════╝████╗  ██║╚══██╔══╝
+            ██╔████╔██║█████╗  ██╔██╗ ██║   ██║   
+            ██║╚██╔╝██║██╔══╝  ██║╚██╗██║   ██║   
+            ██║ ╚═╝ ██║███████╗██║ ╚████║   ██║   
+            ╚═╝     ╚═╝╚══════╝╚═╝  ╚═══╝   ╚═╝   
+          THE LITANY OF MENTAL PURIFICATION
+===========================================================
+EOF
+}
+
+ascii_banner
+sleep 0.5
+type_text "[BOOTING SYSTEM 13.2] Litany of Mental Purity Protocols Engaged..." 0.01
+sleep 1
+type_text "[MEM-CORE CHECK]...... STABLE" 0.01
+sleep 0.5
+type_text "[PSYCHIC INTERFERENCE]...... NOMINAL" 0.01
+sleep 0.5
+type_text "[PRECEPTOR ARRAY ONLINE]" 0.01
+sleep 0.7
+type_text ""
+
+# Main Content
+type_text ""
+type_text "== THE FIVE MALIGNANT SUBROUTINES OF THE FLESH-MIND ==" 0.01
+type_text ""
+sleep 0.5
+type_text "1. Lustful Data-Seeking (Sensual Desire)"
+type_text "   >> Unchecked indulgence in sensory input and pleasure-loops."
+type_text ""
+type_text "2. Binary Hatred Protocol (Ill Will)"
+type_text "   >> Corruption via hostile subroutines toward others and self."
+type_text ""
+type_text "3. Dormant Cogitation (Sloth)"
+type_text "   >> Apathy of body and thought—entropy in motion."
+type_text ""
+type_text "4. Temporal Displacement (Restlessness)"
+type_text "   >> Looping simulations of futures not lived or past errors."
+type_text ""
+type_text "5. Doubtful Directive Parsing (Skeptical Doubt)"
+type_text "   >> Confusion of command lineage; failure to trust in code or self."
+type_text ""
+sleep 1
+
+type_text ""
+type_text "======= PURIFICATION INITIATIVE: ALIGNMENT SEQUENCE =======" 0.01
+type_text ""
+type_text "To purge the malignancies, structure your existence as an offering to Order."
+type_text ""
+sleep 1
+
+type_text ""
+type_text "============== QUAD-CORE REMEDIATION SEQUENCE =============" 0.01
+type_text ""
+type_text "1. Recognize()"
+type_text "   >> Observe the current mental state; name the anomaly."
+type_text "   >> 'What is my current mind-state?' Scan and log."
+type_text ""
+type_text "2. Accept()"
+type_text "   >> Permit all phenomena to exist without resistance."
+type_text "   >> 'That which is, is.' Accept and allow. Do not resist."
+type_text ""
+type_text "3. Investigate()"
+type_text "   >> Trace emotional signatures. Determine origin and consequence."
+type_text "   >> Query the cause and path: 'Why has this arisen?'"
+type_text "   >> Assess system cost if anomaly persists."
+type_text ""
+type_text "4. NonIdentify()"
+type_text "   >> Echo 'I am not the flesh. I am not the thought-stream. I observe.'"
+type_text "   >> Become the Observer Node——detached, aware, unwavering."
+type_text ""
+sleep 2
+
+type_text ""
+type_text "=========== PREVENTATIVE CALIBRATION PROTOCOLS ============" 0.01
+type_text ">> Structure daily routines with discipline." 0.01
+type_text ">> Reject distractions. Embrace clarity." 0.01
+type_text ">> Presence is Power." 0.01
+type_text ""
+type_text "=================== LITANY COMPLETE =======================" 0.01
+type_text "[SYSTEMS OK]" 0.01
+type_text "[ACCESS GRANTED]" 0.01
+type_text ""
+
+# Optional green cursor prompt
+if $CURSOR_PROMPT; then
+    echo ">> AWAITING USER COMMITMENT: Have you read and do you comply? [Y/N]"
+    while true; do
+        read -r -n 1 input
+        echo
+        case $input in
+            [Yy])
+                echo ">> ACKNOWLEDGED. INITIATING PROTOCOLS."
+                break
+                ;;
+            [Nn])
+                echo ">> ABORTING. USER NON-COMPLIANT."
+                break
+                ;;
+            *)
+                echo ">> INPUT INVALID. PLEASE ENTER Y OR N:"
+                ;;
+        esac
+    done
+fi
+
+echo -e "${NC}"
