@@ -43,14 +43,15 @@ type_text() {
     if $TYPEWRITER; then
         for (( i=0; i<${#text}; i++ )); do
             char="${text:$i:1}"
-            echo "${char}"
+            printf "%s" "$char"
             sleep $delay
         done
         echo
     else
-        echo "${text}"
+        echo "$text"
     fi
 }
+
 
 ascii_banner() {
 echo -e "${GREEN}"
