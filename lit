@@ -142,15 +142,19 @@ prompt() {
 
 prompt
 
-if $CURSOR_PROMPT; then
-    echo -e "\033[2J\033[0;0H"  # Clear screen
-    ascii_banner    
-    echo "[BOOTING SYSTEM 13.2] Litany of Mental Purity Protocols Engaged..."
-    echo "[MEM-CORE CHECK]...... STABLE"
-    echo "[PSYCHIC INTERFERENCE]...... NOMINAL"
-    echo "[PRECEPTOR ARRAY ONLINE]"
-    echo ""
-fi
+banner() {
+    if $CURSOR_PROMPT; then
+        echo -e "\033[2J\033[0;0H"  # Clear screen
+        ascii_banner    
+        echo "[BOOTING SYSTEM 13.2] Litany of Mental Purity Protocols Engaged..."
+        echo "[MEM-CORE CHECK]...... STABLE"
+        echo "[PSYCHIC INTERFERENCE]...... NOMINAL"
+        echo "[PRECEPTOR ARRAY ONLINE]"
+        echo ""
+    fi
+}
+
+banner
 
 type_text ""
 type_text "======= PURIFICATION INITIATIVE: ALIGNMENT SEQUENCE =======" 0.01
@@ -189,6 +193,7 @@ type_text ">> Presence is Power." 0.01
 type_text ""
 
 prompt
+banner
 
 type_text "=================== LITANY COMPLETE =======================" 0.01
 type_text "[SYSTEMS OK]" 0.01
