@@ -5,6 +5,13 @@ NC='\033[0m' # No Color
 TYPEWRITER=false
 CURSOR_PROMPT=false
 
+flicker() {
+    for i in {1..3}; do
+        echo -ne "\033[2J\033[0;0H"  # Clear screen
+        sleep 0.05
+    done
+}
+
 display_help() {
     echo "The 5 Hindrances Refactored - Litany of Mental Purification"
     echo
@@ -52,9 +59,11 @@ type_text() {
     fi
 }
 
+flicker
+
+echo -e "${GREEN}"
 
 ascii_banner() {
-echo -e "${GREEN}"
 cat << "EOF"
 ===========================================================
             ███╗   ███╗███████╗███╗   ██╗████████╗
@@ -69,6 +78,8 @@ EOF
 }
 
 ascii_banner
+
+init_log() {
 sleep 0.5
 type_text "[BOOTING SYSTEM 13.2] Litany of Mental Purity Protocols Engaged..." 0.01
 sleep 1
@@ -79,6 +90,9 @@ sleep 0.5
 type_text "[PRECEPTOR ARRAY ONLINE]" 0.01
 sleep 0.7
 type_text ""
+}
+
+init_log
 
 # Main Content
 type_text ""
@@ -101,6 +115,42 @@ type_text "5. Doubtful Directive Parsing (Skeptical Doubt)"
 type_text "   >> Confusion of command lineage; failure to trust in code or self."
 type_text ""
 sleep 1
+
+prompt() {
+    if $CURSOR_PROMPT; then
+        echo ">> AWAITING USER COMMITMENT: Have you read and do you comply? [Y/N]"
+        while true; do
+            read -r -n 1 input
+            echo
+            case $input in
+                [Yy])
+                    echo ">> ACKNOWLEDGED. INITIATING PROTOCOLS."
+                    break
+                    ;;
+                [Nn])
+                    echo ">> ABORTING. USER NON-COMPLIANT."
+                    break
+                    exit
+                    ;;
+                *)
+                    echo ">> INPUT INVALID. PLEASE ENTER Y OR N:"
+                    ;;
+            esac
+        done
+    fi
+}
+
+prompt
+
+if $CURSOR_PROMPT; then
+    echo -e "\033[2J\033[0;0H"  # Clear screen
+    ascii_banner    
+    echo "[BOOTING SYSTEM 13.2] Litany of Mental Purity Protocols Engaged..."
+    echo "[MEM-CORE CHECK]...... STABLE"
+    echo "[PSYCHIC INTERFERENCE]...... NOMINAL"
+    echo "[PRECEPTOR ARRAY ONLINE]"
+    echo ""
+fi
 
 type_text ""
 type_text "======= PURIFICATION INITIATIVE: ALIGNMENT SEQUENCE =======" 0.01
@@ -137,31 +187,12 @@ type_text ">> Structure daily routines with discipline." 0.01
 type_text ">> Reject distractions. Embrace clarity." 0.01
 type_text ">> Presence is Power." 0.01
 type_text ""
+
+prompt
+
 type_text "=================== LITANY COMPLETE =======================" 0.01
 type_text "[SYSTEMS OK]" 0.01
 type_text "[ACCESS GRANTED]" 0.01
 type_text ""
-
-# Optional green cursor prompt
-if $CURSOR_PROMPT; then
-    echo ">> AWAITING USER COMMITMENT: Have you read and do you comply? [Y/N]"
-    while true; do
-        read -r -n 1 input
-        echo
-        case $input in
-            [Yy])
-                echo ">> ACKNOWLEDGED. INITIATING PROTOCOLS."
-                break
-                ;;
-            [Nn])
-                echo ">> ABORTING. USER NON-COMPLIANT."
-                break
-                ;;
-            *)
-                echo ">> INPUT INVALID. PLEASE ENTER Y OR N:"
-                ;;
-        esac
-    done
-fi
 
 echo -e "${NC}"
