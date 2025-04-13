@@ -96,7 +96,7 @@ init_log
 
 # Main Content
 type_text ""
-type_text "== THE FIVE MALIGNANT SUBROUTINES OF THE FLESH-MIND ==" 0.01
+echo "===== THE FIVE MALIGNANT SUBROUTINES OF THE FLESH-MIND ===="
 type_text ""
 sleep 0.5
 type_text "1. Lustful Data-Seeking (Sensual Desire)"
@@ -157,14 +157,14 @@ banner() {
 banner
 
 type_text ""
-echo "======= PURIFICATION INITIATIVE: ALIGNMENT SEQUENCE =======" 0.01
+echo "======= PURIFICATION INITIATIVE: ALIGNMENT SEQUENCE =======" 
 type_text ""
 type_text "To purge the malignancies, structure your existence as an offering to Order."
 type_text ""
 sleep 1
 
 type_text ""
-echo "============== QUAD-CORE REMEDIATION SEQUENCE =============" 0.01
+echo "============== QUAD-CORE REMEDIATION SEQUENCE =============" 
 type_text ""
 type_text "1. Recognize()"
 type_text "   >> Observe the current mental state; name the anomaly."
@@ -186,7 +186,7 @@ type_text ""
 sleep 2
 
 type_text ""
-echo "=========== PREVENTATIVE CALIBRATION PROTOCOLS ============" 0.01
+echo "=========== PREVENTATIVE CALIBRATION PROTOCOLS ============" 
 type_text ">> Structure daily routines with discipline." 0.01
 type_text ">> Reject distractions. Embrace clarity." 0.01
 type_text ">> Presence is Power." 0.01
@@ -195,7 +195,7 @@ type_text ""
 prompt
 banner
 
-echo "=================== LITANY COMPLETE =======================" 0.01
+echo "=================== LITANY COMPLETE =======================" 
 type_text "[SYSTEMS OK]" 0.01
 type_text "[ACCESS GRANTED]" 0.01
 type_text ""
