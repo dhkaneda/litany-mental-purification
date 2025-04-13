@@ -181,7 +181,7 @@ type_text "   >> Assess system cost if anomaly persists."
 type_text ""
 type_text "4. NonIdentify()"
 type_text "   >> Echo 'I am not the flesh. I am not the thought-stream. I observe.'"
-type_text "   >> Become the Observer Node——detached, aware, unwavering."
+type_text "   >> Become the Observer Node--detached, aware, unwavering."
 type_text ""
 sleep 2
 
