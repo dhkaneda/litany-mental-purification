@@ -1,8 +1,6 @@
 # The 5 Hindrances Refactored
 
-The Shaolin Buddhist "5 Hindrances" and "4 Steps to Liberation" reimagined in the gothic techno-religious tone of Warhammer 40k’s Adeptus Mechanicus. It's rewritten as if it's a sacred dataslate issued by a Tech-Priest of Inner Optimization.
-
-You shall optimize your neural protocols and achieve Enlightenment through Systematic Purification.
+The Shaolin Buddhist "5 Hindrances" and "4 Steps to Liberation" reimagined in the gothic techno-religious tone of Warhammer 40k’s Adeptus Mechanicus. 
 
 ```text
 ===========================================================
